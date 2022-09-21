@@ -6,7 +6,7 @@
 /*   By: jledesma <jledesma@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 18:47:13 by jledesma          #+#    #+#             */
-/*   Updated: 2022/09/21 19:09:11 by jledesma         ###   ########.fr       */
+/*   Updated: 2022/09/21 19:17:08 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,12 @@ int	main(int argc, char **argv)
 
 	nstka = (int *)malloc(2 * sizeof(int));
 	nstkb = (int *)malloc(sizeof(int));
-	check_parameters(argc, argv, nstka, nstkb);
+	check_param(argc, argv, nstka, nstkb);
 	set_numbers(argc, nstka, nstkb);
 	stka = (long *)malloc(sizeof(long) * stack_size(argc, argv));
 	stkb = (long *)malloc(sizeof(long) * stack_size(argc, argv));
 	if ((sep_iptn(stka, nstka, argv) == -1) || (stk_srt(stka, nstka) == 0))
-		free_stacks(stka, stkb, nstka, nstkb);
+		free_all_stacks(stka, stkb, nstka, nstkb);
 	if ((nstka[1] == 2) && (stka[0] > stka[1]))
 		rotate_stka(stka, nstka);
 	else if (nstka[1] == 3)
@@ -71,7 +71,6 @@ int	main(int argc, char **argv)
 		sort_5(stka, stkb, nstka, nstkb);
 	else
 		sort_radix(stka, stkb, nstka, nstkb);
-	ft_print_stacks(stka, nstka);
-	free_stacks(stka, stkb, nstka, nstkb);
+	free_all_stacks(stka, stkb, nstka, nstkb);
 	return (0);
 }
