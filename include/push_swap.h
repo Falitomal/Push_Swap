@@ -6,7 +6,7 @@
 /*   By: jledesma <jledesma@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 20:02:39 by jledesma          #+#    #+#             */
-/*   Updated: 2022/09/20 18:52:18 by jledesma         ###   ########.fr       */
+/*   Updated: 2022/09/25 11:55:33 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <errno.h>
+# include <limits.h>
 
 /*------------*/
 /* Utils */
@@ -33,18 +34,21 @@ void	free_exit(int *nstka, int *nstkb);
 void	free_exit_mess(int *nstka, int *nstkb);
 
 /* utils.c */
-int		only_numbers(char *n);
-int		stk_srt(long *stka, int *nstka);
+long	only_numbers(char *n);
+long	stk_srt(long *stka, int *nstka);
 void	realocate(long *pointer, int oldsize, int newsize);
-int		n_limits(long *stka, int nstka);
-int		repet_n(long *stka, int nstka);
+long	n_limits(long *stka, int nstka);
+long	repet_n(long *stka, int nstka);
 
 /* libft.c */
 int		ft_strlen(const char *str);
 int		ft_isdigit(int i);
 int		ft_atoi(const char *str);
 char	**ft_split(char const *s, char c);
+long	ft_long_atoi(const char *str);
 
+/* Checkers tests */
+void	isinteger(int argc, char **argv, int *nstka);
 /*------------*/
 /* Operations */
 /*------------*/
@@ -70,7 +74,7 @@ void	push_stkb(long *stka, long *stkb, int *nstka, int *nstkb);
 void	parameters(long *stka, long *stkb, int *nstka, int *nstkb);
 
 /* separate.c */
-int		n_input(long *stka, int *nstka, char **argv, char **n_list);
+long	n_input(long *stka, int *nstka, char **argv, char **n_list);
 int		stand_input(long *stka, int *nstka, char **argv);
 int		stack_size(int argc, char **argv);
 int		sep_iptn(long *stka, int *nstka, char **argv);

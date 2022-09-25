@@ -6,7 +6,7 @@
 /*   By: jledesma <jledesma@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 13:10:42 by jledesma          #+#    #+#             */
-/*   Updated: 2022/09/18 13:23:41 by jledesma         ###   ########.fr       */
+/*   Updated: 2022/09/24 21:11:24 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,31 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (res * neg);
+}
+
+long	ft_long_atoi(const char *str)
+{
+	int		sign;
+	long	res;
+	long	i;
+	long	n;
+
+	sign = 1;
+	res = 0;
+	i = 0;
+	n = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = (str[i] - '0') + (res * 10);
+		i++;
+	}
+	return (res * sign);
 }

@@ -6,17 +6,17 @@
 /*   By: jledesma <jledesma@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 17:36:18 by jledesma          #+#    #+#             */
-/*   Updated: 2022/09/18 17:13:39 by jledesma         ###   ########.fr       */
+/*   Updated: 2022/09/25 12:01:27 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 /* check numbers in input  */
-int	n_input(long *stka, int *nstka, char **argv, char **n_list)
+long	n_input(long *stka, int *nstka, char **argv, char **n_list)
 {
-	int		i;
-	int		numbers;
+	long		i;
+	long		numbers;
 
 	i = 0;
 	numbers = 0;
@@ -31,7 +31,7 @@ int	n_input(long *stka, int *nstka, char **argv, char **n_list)
 	i = 0;
 	while (i < nstka[0])
 	{
-		stka[i] = ft_atoi(n_list[i]);
+		stka[i] = ft_long_atoi(n_list[i]);
 		i++;
 	}
 	free_string(n_list);
@@ -69,10 +69,12 @@ int	stand_input(long *stka, int *nstka, char **argv)
 	while (i < nstka[1])
 	{
 		if (only_numbers(argv[i + 1]) == 1)
-			stka[i] = ft_atoi(argv[i + 1]);
+		{
+			stka[i] = ft_long_atoi(argv[i + 1]);
+		}
 		else
 		{
-			write(1, "Error NO numbers\n", 18);
+			write(1, "Error", 5);
 			return (-1);
 		}
 		i++;

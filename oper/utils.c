@@ -6,17 +6,17 @@
 /*   By: jledesma <jledesma@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 18:24:18 by jledesma          #+#    #+#             */
-/*   Updated: 2022/09/18 17:14:32 by jledesma         ###   ########.fr       */
+/*   Updated: 2022/09/25 11:59:17 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 /* Check the string is only numbers */
-int	only_numbers(char *n)
+long	only_numbers(char *n)
 {
-	int	i;
-	int	min;
+	int		i;
+	long	min;
 
 	i = 0;
 	min = 0;
@@ -34,7 +34,7 @@ int	only_numbers(char *n)
 }
 
 /* Check if stack is sorted */
-int	stk_srt(long *stka, int *nstka)
+long	stk_srt(long *stka, int *nstka)
 {
 	int		i;
 	int		j;
@@ -87,16 +87,16 @@ void	realocate(long *pointer, int oldsize, int newsize)
 }
 
 /* Check if numbers of stack oversize the limits */
-int	n_limits(long *stka, int nstka)
+long	n_limits(long *stka, int nstka)
 {
 	int	i;
 
 	i = 0;
 	while (i < nstka)
 	{
-		if ((stka[i] > 2147483647) || (stka[i] < -2147483648))
+		if ((stka[i] > INT_MAX) || (stka[i] < INT_MIN))
 		{
-			write(1, "Error Limits \n", 15);
+			write(1, "Error", 5);
 			return (-1);
 		}
 		i++;
@@ -105,7 +105,7 @@ int	n_limits(long *stka, int nstka)
 }
 
 /* Checks if repeated numbers in stack */
-int	repet_n(long *stka, int nstka)
+long	repet_n(long *stka, int nstka)
 {
 	int	i;
 	int	j;
@@ -116,10 +116,10 @@ int	repet_n(long *stka, int nstka)
 	{
 		j = 0;
 		while (j < nstka)
-		{
+		{	
 			if ((i != j) && (stka[i] == stka[j]))
 			{
-				write(1, "Error repeat numbers\n", 22);
+				write(1, "Error", 5);
 				return (-1);
 			}
 			j++;

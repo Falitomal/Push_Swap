@@ -6,7 +6,7 @@
 /*   By: jledesma <jledesma@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 18:47:13 by jledesma          #+#    #+#             */
-/*   Updated: 2022/09/21 19:17:08 by jledesma         ###   ########.fr       */
+/*   Updated: 2022/09/25 12:04:21 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	check_param(int argc, char **argv, int *nstka, int *nstkb)
 {
-	int		i;
-	int		j;
+	long		i;
+	long		j;
 
 	i = 1;
 	j = 0;
@@ -48,6 +48,27 @@ void	set_numbers(int argc, int *nstka, int *nstkb)
 	*nstkb = 0;
 }
 
+void	isinteger(int argc, char **argv, int *nstka)
+{
+	long		i;
+	long		j;
+	long		tmp;
+
+	i = 1;
+	j = 0;
+	while (i < argc)
+	{
+		tmp = ft_long_atoi(argv[i]);
+		if (tmp > INT_MAX || tmp < INT_MIN)
+		{
+			write(1, "Error\n", 5);
+			free(nstka);
+			exit(0);
+		}
+		i++;
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	long	*stka;
@@ -59,6 +80,7 @@ int	main(int argc, char **argv)
 	nstkb = (int *)malloc(sizeof(int));
 	check_param(argc, argv, nstka, nstkb);
 	set_numbers(argc, nstka, nstkb);
+	//isinteger(argc, argv, nstka);
 	stka = (long *)malloc(sizeof(long) * stack_size(argc, argv));
 	stkb = (long *)malloc(sizeof(long) * stack_size(argc, argv));
 	if ((sep_iptn(stka, nstka, argv) == -1) || (stk_srt(stka, nstka) == 0))
