@@ -6,7 +6,7 @@
 #    By: jledesma <jledesma@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/22 21:04:41 by jledesma          #+#    #+#              #
-#    Updated: 2022/09/21 14:01:04 by jledesma         ###   ########.fr        #
+#    Updated: 2022/09/25 17:56:26 by jledesma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRC_PRINTF = Libft_plus
 LIBFPRINTF = Libft_plus/libft.a
 
 %.o: %.c
-	@ $(CC) $(CFLAGS) -c $< -o $@ 
+	@$(CC) $(CFLAGS) -c $< -o $@  -g
 #Renders
 #INCLUDES	= -I include -I MLX42/include/MLX42
 #LIBS		= MLX42/libmlx42.a -lglfw -L /Users/${USER}/.brew/opt/glfw/lib/
@@ -80,7 +80,7 @@ all:   $(NAME)
 
 
 $(NAME): $(OBJECTS)
-	@$(CC) $(CFLAGS)  $(SOURCES) -o $(NAME)
+	@$(CC) $(CFLAGS)  $(OBJECTS) -o $(NAME) -g
 	@echo "\n$(Color_Off)$(BGreen)>>	🤟	⓸⓶ Push Swap 	 ✅	<<	$(Color_Off)"
 
 clean:

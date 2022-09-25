@@ -6,7 +6,7 @@
 /*   By: jledesma <jledesma@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 15:51:40 by jledesma          #+#    #+#             */
-/*   Updated: 2022/09/20 20:19:44 by jledesma         ###   ########.fr       */
+/*   Updated: 2022/09/25 17:53:53 by jledesma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	rr_stkb(long *stkb, int *nstkb)
 }
 
 /* Reverse stack A y B */
-//TODO revisar el stack B
 void	rr_stkab(long *stka, long *stkb, int *nstka, int *nstkb)
 {
 	int		i;
